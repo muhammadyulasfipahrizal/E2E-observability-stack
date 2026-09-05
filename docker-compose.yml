@@ -9,7 +9,6 @@ services:
       - ./otel/otel-collector.yml:/etc/otelcol-contrib/otel-collector.yml:ro
     ports:
       - "4317:4317"   # OTLP gRPC
-      - "4318:4318"   # OTLP HTTP
       - "8889:8889"   # Prometheus metrics exporter
     depends_on:
       - prometheus
@@ -61,7 +60,6 @@ services:
     ports:
       - "16686:16686" # Jaeger UI
       - "4317" # OTLP gRPC internal
-      - "4318" # OTLP HTTP internal
     networks:
       - research-observability
 
